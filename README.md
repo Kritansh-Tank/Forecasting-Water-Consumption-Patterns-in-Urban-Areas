@@ -99,20 +99,20 @@ The following features are used for training:
 
 ---
 
-## Project Structure
+## Evaluation Metric
+
+The model is evaluated using **Root Mean Squared Error (RMSE)**:
 
 ```
-Forecasting water consumption patterns in urban areas/
-│
-├── dataset/
-│   ├── train.csv              # Training data (12,000 rows)
-│   ├── test.csv               # Test data (3,000 rows)
-│   └── sample_submission.csv  # Sample submission format
-│
-├── jupyter_notebook.ipynb     # Main notebook with solution code
-├── submission.csv             # Generated predictions
-└── README.md                  # Project documentation
+Score = 100 × max(0, 1 − (RMSE / max_RMSE))
 ```
+
+Where `max_RMSE = 500` (thousands of liters) is used for normalization.
+
+| Metric | Description |
+|---|---|
+| **RMSE** | Measures average prediction error magnitude |
+| **Score Range** | 0 – 100 (higher is better) |
 
 ---
 
@@ -140,30 +140,28 @@ Forecasting water consumption patterns in urban areas/
 
 ---
 
-## Evaluation Metric
-
-The model is evaluated using **Root Mean Squared Error (RMSE)**:
+## Project Structure
 
 ```
-Score = 100 × max(0, 1 − (RMSE / max_RMSE))
+Forecasting-Water-Consumption-Patterns-in-Urban-Areas/
+├── dataset/
+│   ├── train.csv
+│   ├── test.csv
+│   └── sample_submission.csv
+├── jupyter_notebook.ipynb    # Solution notebook
+├── submission.csv            # Generated predictions
+└── README.md
 ```
-
-Where `max_RMSE = 500` (thousands of liters) is used for normalization.
-
-| Metric | Description |
-|---|---|
-| **RMSE** | Measures average prediction error magnitude |
-| **Score Range** | 0 – 100 (higher is better) |
 
 ---
 
-## Future Improvements
+## Constraints
 
-- Hyperparameter tuning using GridSearchCV / RandomizedSearchCV
-- Experiment with Gradient Boosting models (XGBoost, LightGBM, CatBoost)
-- Cross-validation for more robust evaluation
-- Advanced feature engineering (rolling averages, lag features, interaction terms)
-- Exploratory Data Analysis (EDA) with visualizations
+| Constraint     | Value    |
+|----------------|----------|
+| Time Limit     | 5.0 sec  |
+| Memory Limit   | 256 MB   |
+| Source Limit    | 1024 KB  |
 
 ---
 
